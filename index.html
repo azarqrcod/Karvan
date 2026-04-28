@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karvan Interior Design</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: url('karvan-interior-background.png') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.container {
+    width: 100%;
+    max-width: 420px;
+    padding: 30px 20px;
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+    background: rgba(0,0,0,0.45);
+    text-align: center;
+}
+
+.logo {
+    width: 130px;
+    margin-bottom: 20px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    opacity: 0.85;
+    margin-bottom: 25px;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    margin: 10px 0;
+    border-radius: 30px;
+    text-decoration: none;
+    color: white;
+    backdrop-filter: blur(14px);
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    transition: all 0.25s ease;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    background: rgba(255,255,255,0.25);
+}
+
+.footer {
+    margin-top: 25px;
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+.cta {
+    margin-top: 15px;
+    font-weight: bold;
+    background: rgba(255,255,255,0.2);
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<img src="logo-karvan.png" class="logo" alt="Karvan Logo">
+
+<h1>Willkommen</h1>
+<p class="subtitle">Vielen Dank, dass Sie uns gewählt haben</p>
+
+<a href="https://wa.me/4917672161005" class="btn">WhatsApp</a>
+
+<a href="https://www.instagram.com/karvaninteriordesign" class="btn">Instagram</a>
+
+<a href="mailto:Info@karvan-design.de" class="btn">E-Mail</a>
+
+<a href="https://maps.google.com/?q=Pepitapromenade+37,+13587+Berlin" class="btn">
+Adresse anzeigen
+</a>
+
+<div class="footer">
+Wir verwandeln Räume in stilvolle Lebenswelten.  
+Modern. Präzise. Hochwertig.
+</div>
+
+<a href="mailto:azarqrcod@gmail.com?subject=Neues Projekt Karvan" class="btn cta">
+Projekt starten
+</a>
+
+</div>
+
+</body>
+</html>
