@@ -6,133 +6,196 @@
 <title>Karvan Interior Design</title>
 
 <style>
+:root{
+    --glass-bg: rgba(255,255,255,0.12);
+    --glass-border: rgba(255,255,255,0.25);
+    --text-main: #ffffff;
+}
+
+/* Reset */
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
 }
 
+/* Background */
 body{
     height:100vh;
     background:url('karvan-interior-background.png') no-repeat center center/cover;
     display:flex;
     justify-content:center;
     align-items:center;
-    color:#fff;
+    color:var(--text-main);
     position:relative;
-    overflow:hidden;
 }
 
-/* لایه بلور کل صفحه */
+/* Global blur layer */
 .blur-layer{
     position:absolute;
     inset:0;
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     background: rgba(0,0,0,0.15);
     z-index:0;
 }
 
-/* ساختار */
+/* Wrapper */
 .wrapper{
     position:relative;
     z-index:2;
     width:100%;
     max-width:420px;
+    padding:16px;
     text-align:center;
 }
 
-/* لوگو (روی بلور) */
+/* Logo */
 .logo{
     width:150px;
-    margin-bottom:20px;
-    animation: float 3s ease-in-out infinite;
+    margin-bottom:18px;
+    animation: float 4s ease-in-out infinite;
 }
 
+/* Motion respect */
+@media (prefers-reduced-motion: reduce){
+    .logo{ animation:none; }
+}
+
+/* Logo animation */
 @keyframes float{
-    0%{transform:translateY(0)}
-    50%{transform:translateY(-12px)}
-    100%{transform:translateY(0)}
+    0%{ transform:translateY(0); }
+    50%{ transform:translateY(-10px); }
+    100%{ transform:translateY(0); }
 }
 
-/* باکس */
-.glass{
-    padding:25px 15px;
-    border-radius:25px;
-    background: rgba(255,255,255,0.08);
+/* Glass card */
+.card{
+    position:relative;
+    border-radius:24px;
+    padding:24px 18px;
+    overflow:hidden;
 }
 
-/* متن */
+/* real glass */
+.card::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    background: rgba(255,255,255,0.06);
+    border-radius:24px;
+    z-index:0;
+}
+
+/* fallback */
+@supports not (backdrop-filter: blur(10px)){
+    .card::before{
+        background: rgba(0,0,0,0.45);
+    }
+}
+
+.content{
+    position:relative;
+    z-index:1;
+}
+
+/* Text */
 h1{
     font-size:28px;
-    margin-bottom:10px;
+    margin-bottom:8px;
 }
 
 .subtitle{
+    font-size:15px;
+    opacity:0.9;
     margin-bottom:20px;
 }
 
-/* دکمه‌ها */
+/* Buttons */
 .btn{
-    display:block;
+    display:flex;
+    justify-content:center;
+    align-items:center;
     width:100%;
     padding:14px;
     margin:10px 0;
-    border-radius:30px;
+    border-radius:28px;
     text-decoration:none;
     color:#fff;
-    background: rgba(255,255,255,0.18);
-    border:1px solid rgba(255,255,255,0.25);
-    backdrop-filter: blur(8px);
-    transition:0.3s;
+    background:var(--glass-bg);
+    border:1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    transition: all 0.25s ease;
 }
 
-/* hover */
+/* Hover */
 .btn:hover{
-    transform:scale(1.05);
-    background: rgba(255,255,255,0.35);
+    transform: translateY(-2px) scale(1.03);
+    background: rgba(255,255,255,0.28);
+}
+
+/* Focus accessibility */
+.btn:focus-visible{
+    outline:2px solid #fff;
+    outline-offset:3px;
 }
 
 /* CTA */
 .cta{
-    width:60%;
-    margin:20px auto 0;
-    padding:10px;
-    font-weight:bold;
+    width:65%;
+    margin:22px auto 0;
+    font-weight:600;
 }
 
-/* متن پایین */
+/* Footer */
 .footer{
-    margin-top:15px;
+    margin-top:14px;
     font-size:14px;
+    opacity:0.9;
+    line-height:1.4;
 }
 
+/* Brand line */
 .brand{
     margin-top:12px;
     font-size:13px;
+    opacity:0.8;
 }
 </style>
-
 </head>
 
 <body>
 
-<!-- لایه بلور -->
 <div class="blur-layer"></div>
 
 <div class="wrapper">
 
-<img src="logo-karvan.PNG" class="logo">
+<img src="logo-karvan.PNG" class="logo" alt="Karvan Logo">
 
-<div class="glass">
+<div class="card">
+<div class="content">
 
 <h1>Willkommen</h1>
 <p class="subtitle">Vielen Dank, dass Sie uns gewählt haben</p>
 
-<a href="https://wa.me/4917672161005" class="btn">WhatsApp</a>
-<a href="https://www.instagram.com/karvaninteriordesign" class="btn">Instagram</a>
-<a href="mailto:Info@karvan-design.de" class="btn">E-Mail</a>
-<a href="https://maps.google.com/?q=Pepitapromenade+37,+13587+Berlin" class="btn">Adresse anzeigen</a>
+<a href="https://wa.me/4917672161005" class="btn" aria-label="WhatsApp Kontakt">
+WhatsApp
+</a>
+
+<a href="https://www.instagram.com/karvaninteriordesign" class="btn" aria-label="Instagram Seite">
+Instagram
+</a>
+
+<a href="mailto:Info@karvan-design.de" class="btn" aria-label="E-Mail senden">
+E-Mail
+</a>
+
+<a href="https://maps.google.com/?q=Pepitapromenade+37,+13587+Berlin" class="btn" aria-label="Adresse anzeigen">
+Adresse anzeigen
+</a>
 
 <div class="footer">
 Wir verwandeln Räume in stilvolle Lebenswelten.<br>
@@ -144,9 +207,10 @@ Azar Digital
 </a>
 
 <p class="brand">
-Azar Digital – sichtbar. professionell. wirksam.
+Azar Digital – wir machen Ihr Business sichtbar.
 </p>
 
+</div>
 </div>
 
 </div>
