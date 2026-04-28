@@ -10,7 +10,7 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: Arial, sans-serif;
+    font-family:Arial, sans-serif;
 }
 
 body{
@@ -20,46 +20,49 @@ body{
     justify-content:center;
     align-items:center;
     color:#fff;
+    position:relative;
+    overflow:hidden;
 }
 
-/* Layout */
+/* لایه بلور کل صفحه */
+.blur-layer{
+    position:absolute;
+    inset:0;
+    backdrop-filter: blur(12px);
+    background: rgba(0,0,0,0.15);
+    z-index:0;
+}
+
+/* ساختار */
 .wrapper{
+    position:relative;
+    z-index:2;
     width:100%;
     max-width:420px;
     text-align:center;
 }
 
-/* Logo */
+/* لوگو (روی بلور) */
 .logo{
     width:150px;
-    margin-bottom:15px;
+    margin-bottom:20px;
+    animation: float 3s ease-in-out infinite;
 }
 
-/* Glass container (real blur behind) */
+@keyframes float{
+    0%{transform:translateY(0)}
+    50%{transform:translateY(-12px)}
+    100%{transform:translateY(0)}
+}
+
+/* باکس */
 .glass{
-    position:relative;
     padding:25px 15px;
     border-radius:25px;
-    overflow:hidden;
+    background: rgba(255,255,255,0.08);
 }
 
-.glass::before{
-    content:'';
-    position:absolute;
-    inset:0;
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    background: rgba(255,255,255,0.06);
-    border-radius:25px;
-    z-index:0;
-}
-
-.content{
-    position:relative;
-    z-index:1;
-}
-
-/* Text */
+/* متن */
 h1{
     font-size:28px;
     margin-bottom:10px;
@@ -67,37 +70,27 @@ h1{
 
 .subtitle{
     margin-bottom:20px;
-    opacity:0.95;
 }
 
-/* Buttons */
+/* دکمه‌ها */
 .btn{
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    display:block;
     width:100%;
     padding:14px;
     margin:10px 0;
     border-radius:30px;
     text-decoration:none;
     color:#fff;
-    background: rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.18);
     border:1px solid rgba(255,255,255,0.25);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    transition:0.25s;
+    backdrop-filter: blur(8px);
+    transition:0.3s;
 }
 
+/* hover */
 .btn:hover{
-    background: rgba(255,255,255,0.25);
-    transform:scale(1.04);
-}
-
-/* Footer */
-.footer{
-    margin-top:15px;
-    font-size:14px;
-    opacity:0.9;
+    transform:scale(1.05);
+    background: rgba(255,255,255,0.35);
 }
 
 /* CTA */
@@ -108,23 +101,30 @@ h1{
     font-weight:bold;
 }
 
-/* Brand line */
+/* متن پایین */
+.footer{
+    margin-top:15px;
+    font-size:14px;
+}
+
 .brand{
     margin-top:12px;
     font-size:13px;
-    opacity:0.85;
 }
 </style>
+
 </head>
 
 <body>
 
+<!-- لایه بلور -->
+<div class="blur-layer"></div>
+
 <div class="wrapper">
 
-<img src="logo-karvan.PNG" class="logo" alt="Karvan Logo">
+<img src="logo-karvan.PNG" class="logo">
 
 <div class="glass">
-<div class="content">
 
 <h1>Willkommen</h1>
 <p class="subtitle">Vielen Dank, dass Sie uns gewählt haben</p>
@@ -147,7 +147,6 @@ Azar Digital
 Azar Digital – sichtbar. professionell. wirksam.
 </p>
 
-</div>
 </div>
 
 </div>
