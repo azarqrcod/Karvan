@@ -6,90 +6,94 @@
 <title>Karvan Interior Design</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
 }
 
-body {
-    height: 100vh;
-    background: url('karvan-interior-background.png') no-repeat center center/cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
+body{
+    height:100vh;
+    background:url('karvan-interior-background.png') no-repeat center center/cover;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#fff;
 }
 
-/* کل صفحه بدون تار */
-.wrapper {
-    text-align: center;
-    width: 100%;
-    max-width: 420px;
+/* ساختار کلی */
+.wrapper{
+    width:100%;
+    max-width:420px;
+    text-align:center;
 }
 
 /* لوگو */
-.logo {
-    width: 140px;
-    margin-bottom: 15px;
+.logo{
+    width:140px;
+    margin-bottom:15px;
 }
 
-/* فقط این باکس بلوری */
-.glass-box {
-    padding: 25px 15px;
-    border-radius: 25px;
-    backdrop-filter: blur(12px);
-    background: rgba(255,255,255,0.08);
+/* فقط این بخش بلوری */
+.glass-box{
+    padding:25px 15px;
+    border-radius:25px;
+    backdrop-filter: blur(10px);
+    background: rgba(0,0,0,0.15); /* شفاف ولی خوانا */
 }
 
-/* متن */
-h1 {
-    font-size: 28px;
-    margin-bottom: 10px;
+/* متن‌ها */
+h1{
+    font-size:28px;
+    margin-bottom:10px;
 }
 
-.subtitle {
-    margin-bottom: 20px;
-    opacity: 0.9;
+.subtitle{
+    margin-bottom:20px;
+    opacity:0.95;
 }
 
 /* دکمه‌ها */
-.btn {
-    display: block;
-    margin: 10px 0;
-    padding: 14px;
-    border-radius: 30px;
-    text-decoration: none;
-    color: white;
-    backdrop-filter: blur(15px);
+.btn{
+    display:block;
+    width:100%;
+    padding:14px;
+    margin:10px 0;
+    border-radius:30px;
+    text-decoration:none;
+    color:#fff;
+    backdrop-filter: blur(12px);
     background: rgba(255,255,255,0.15);
-    border: 1px solid rgba(255,255,255,0.25);
+    border:1px solid rgba(255,255,255,0.25);
+    transition:0.25s;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+    background: rgba(255,255,255,0.25);
 }
 
 /* متن پایین */
-.footer {
-    margin-top: 15px;
-    font-size: 14px;
-    opacity: 0.9;
+.footer{
+    margin-top:15px;
+    font-size:14px;
+    opacity:0.9;
 }
 
 /* دکمه اصلی */
-.cta {
-    width: 60%;
-    margin: 20px auto 0;
-    padding: 10px;
-    border-radius: 25px;
-    backdrop-filter: blur(15px);
-    background: rgba(255,255,255,0.2);
-    font-weight: bold;
+.cta{
+    width:60%;
+    margin:20px auto 0;
+    padding:10px;
+    font-weight:bold;
 }
 
-/* متن تبلیغ */
-.brand {
-    margin-top: 12px;
-    font-size: 13px;
-    opacity: 0.85;
+/* متن برند */
+.brand{
+    margin-top:12px;
+    font-size:13px;
+    opacity:0.85;
 }
 </style>
 
@@ -99,7 +103,7 @@ h1 {
 
 <div class="wrapper">
 
-<img src="logo-karvan.PNG" class="logo">
+<img src="logo-karvan.PNG" class="logo" alt="Karvan Logo">
 
 <div class="glass-box">
 
@@ -121,7 +125,7 @@ Wir verwandeln Räume in stilvolle Lebenswelten.
 Modern. Präzise. Hochwertig.
 </div>
 
-<a href="mailto:azarqrcod@gmail.com?subject=Neues Projekt Karvan" class="cta">
+<a href="mailto:azarqrcod@gmail.com?subject=Neues Projekt Karvan" class="btn cta">
 Azar Digital
 </a>
 
