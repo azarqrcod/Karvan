@@ -22,75 +22,74 @@ body {
     color: white;
 }
 
-/* Container بدون تاریکی زیاد */
-.container {
+/* کل صفحه بدون تار */
+.wrapper {
+    text-align: center;
     width: 100%;
     max-width: 420px;
-    padding: 30px 20px;
-    border-radius: 20px;
-    backdrop-filter: blur(8px);
-    background: rgba(0,0,0,0.08); /* خیلی شفاف */
-    text-align: center;
 }
 
-/* Logo */
+/* لوگو */
 .logo {
-    width: 130px;
-    margin-bottom: 20px;
-    animation: float 3s ease-in-out infinite;
+    width: 140px;
+    margin-bottom: 15px;
 }
 
-@keyframes float {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
+/* فقط این باکس بلوری */
+.glass-box {
+    padding: 25px 15px;
+    border-radius: 25px;
+    backdrop-filter: blur(12px);
+    background: rgba(255,255,255,0.08);
 }
 
+/* متن */
 h1 {
     font-size: 28px;
     margin-bottom: 10px;
 }
 
 .subtitle {
-    opacity: 0.95;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+    opacity: 0.9;
 }
 
-/* Buttons */
+/* دکمه‌ها */
 .btn {
     display: block;
-    width: 100%;
-    padding: 14px;
     margin: 10px 0;
+    padding: 14px;
     border-radius: 30px;
     text-decoration: none;
     color: white;
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(15px);
     background: rgba(255,255,255,0.15);
     border: 1px solid rgba(255,255,255,0.25);
-    transition: all 0.25s ease;
 }
 
-.btn:hover {
-    transform: scale(1.05);
-    background: rgba(255,255,255,0.3);
-}
-
-/* Footer */
+/* متن پایین */
 .footer {
-    margin-top: 25px;
+    margin-top: 15px;
     font-size: 14px;
     opacity: 0.9;
 }
 
-/* CTA */
+/* دکمه اصلی */
 .cta {
     width: 60%;
     margin: 20px auto 0;
-    font-weight: bold;
-    background: rgba(255,255,255,0.25);
-    font-size: 14px;
     padding: 10px;
+    border-radius: 25px;
+    backdrop-filter: blur(15px);
+    background: rgba(255,255,255,0.2);
+    font-weight: bold;
+}
+
+/* متن تبلیغ */
+.brand {
+    margin-top: 12px;
+    font-size: 13px;
+    opacity: 0.85;
 }
 </style>
 
@@ -98,9 +97,11 @@ h1 {
 
 <body>
 
-<div class="container">
+<div class="wrapper">
 
-<img src="logo-karvan.PNG" class="logo" alt="Karvan Logo">
+<img src="logo-karvan.PNG" class="logo">
+
+<div class="glass-box">
 
 <h1>Willkommen</h1>
 <p class="subtitle">Vielen Dank, dass Sie uns gewählt haben</p>
@@ -120,13 +121,15 @@ Wir verwandeln Räume in stilvolle Lebenswelten.
 Modern. Präzise. Hochwertig.
 </div>
 
-<a href="mailto:azarqrcod@gmail.com?subject=Neues Projekt Karvan" class="btn cta">
+<a href="mailto:azarqrcod@gmail.com?subject=Neues Projekt Karvan" class="cta">
 Azar Digital
 </a>
 
-<p style="margin-top:15px; font-size:13px; opacity:0.85;">
+<p class="brand">
 Azar Digital – sichtbar. professionell. wirksam.
 </p>
+
+</div>
 
 </div>
 
