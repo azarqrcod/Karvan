@@ -56,11 +56,18 @@
     .creator{position:relative;display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:9px 15px;border:1px solid rgba(7,136,209,.22);border-radius:999px;text-decoration:none;color:var(--blue-deep);font-weight:800;background:rgba(255,255,255,.7);overflow:hidden}
     .creator:before{content:"";position:absolute;inset:0;transform:translateX(-115%);background:linear-gradient(100deg,transparent,rgba(7,136,209,.16),transparent);animation:shine 3.4s infinite}
     .creator b{color:var(--orange)}
+    .whatsapp-float{position:fixed;right:max(20px,env(safe-area-inset-right));bottom:max(20px,env(safe-area-inset-bottom));z-index:50;width:66px;height:66px;display:grid;place-items:center;border-radius:50%;color:#fff;background:linear-gradient(145deg,#2ee06f,#16a94e);box-shadow:0 16px 35px rgba(19,153,70,.36),0 0 0 7px rgba(255,255,255,.86);text-decoration:none;transition:transform .25s ease,box-shadow .25s ease;animation:whatsappPulse 2.8s ease-in-out infinite}
+    .whatsapp-float:hover{transform:translateY(-5px) scale(1.05);box-shadow:0 20px 42px rgba(19,153,70,.46),0 0 0 7px rgba(255,255,255,.92)}
+    .whatsapp-float:focus-visible{outline:3px solid var(--orange);outline-offset:7px}
+    .whatsapp-float svg{width:35px;height:35px}
+    .whatsapp-float span{position:absolute;right:76px;white-space:nowrap;padding:9px 12px;border-radius:10px;background:var(--ink);color:white;font-size:.78rem;font-weight:800;opacity:0;transform:translateX(8px);pointer-events:none;transition:.25s ease}
+    .whatsapp-float:hover span,.whatsapp-float:focus-visible span{opacity:1;transform:none}
     @keyframes float{0%,100%{transform:translate(-50%,-50%)}50%{transform:translate(-50%,calc(-50% - 12px))}}
     @keyframes shine{55%,100%{transform:translateX(115%)}}
+    @keyframes whatsappPulse{0%,100%{box-shadow:0 16px 35px rgba(19,153,70,.36),0 0 0 7px rgba(255,255,255,.86)}50%{box-shadow:0 16px 38px rgba(19,153,70,.46),0 0 0 12px rgba(37,211,102,.13)}}
     @media(max-width:780px){.shell{width:min(100% - 20px,560px);padding-top:12px}.topbar{padding:0 5px}.tag{display:none}.hero{grid-template-columns:1fr;border-radius:28px}.hero-copy{padding:34px 24px 30px}.visual{grid-row:1;min-height:360px}.visual:after{background:linear-gradient(0deg,rgba(255,255,255,.94),transparent 34%)}.logo-card{width:min(58%,250px);border-radius:25px}.services{grid-template-columns:1fr}.contact{grid-template-columns:1fr}h1{font-size:clamp(2.8rem,14vw,4.4rem)}}
     @media(max-width:380px){.actions{display:grid}.btn{width:100%}.hero-copy{padding-left:19px;padding-right:19px}}
-    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.logo-card,.creator:before{animation:none!important}.btn,.service,.contact a{transition:none}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.logo-card,.creator:before,.whatsapp-float{animation:none!important}.btn,.service,.contact a{transition:none}}
   </style>
 </head>
 <body>
@@ -72,10 +79,6 @@
         <h1 id="welcome-title">Räume, die sich <span>nach Zuhause anfühlen.</span></h1>
         <p class="intro">Von der ersten Idee bis zur fertigen Montage: Wir gestalten individuelle Innenräume, planen Küchen und bringen jedes Detail zuverlässig an seinen Platz.</p>
         <div class="actions">
-          <a class="btn primary" href="https://wa.me/4917672161005" aria-label="Karvan über WhatsApp kontaktieren">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.5 11.6a8.5 8.5 0 0 1-12.6 7.5L3 20.5l1.4-4.7a8.5 8.5 0 1 1 16.1-4.2Z"/><path d="M8.2 7.7c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.8 2c.1.3.1.5-.1.7l-.6.7c-.2.2-.1.4 0 .6.8 1.4 1.8 2.4 3.2 3.1.2.1.4.1.6-.1l.8-1c.2-.2.4-.3.7-.2l1.9.9c.3.1.4.3.4.5 0 .4-.2 1.3-.6 1.7-.5.5-1.4.8-2.3.8-1.1 0-3.6-.8-5.7-2.7-2.6-2.3-3.4-5-3.4-6 0-.4.2-.8.6-1Z"/></svg>
-            Projekt anfragen
-          </a>
           <a class="btn secondary" href="https://www.instagram.com/karvaninteriordesign" aria-label="Karvan auf Instagram ansehen">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
             Instagram
@@ -110,5 +113,9 @@
       <a class="creator" href="https://azarqrcod.github.io/azarcore/" target="_blank" rel="noopener" aria-label="Website erstellt von AzarCore">Designed & built by <b>AzarCore</b> ↗</a>
     </footer>
   </main>
+  <a class="whatsapp-float" href="https://wa.me/4917672161005" aria-label="Karvan über WhatsApp kontaktieren">
+    <span>WhatsApp</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20.5 11.6a8.5 8.5 0 0 1-12.6 7.5L3 20.5l1.4-4.7a8.5 8.5 0 1 1 16.1-4.2Z"/><path d="M8.2 7.7c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.8 2c.1.3.1.5-.1.7l-.6.7c-.2.2-.1.4 0 .6.8 1.4 1.8 2.4 3.2 3.1.2.1.4.1.6-.1l.8-1c.2-.2.4-.3.7-.2l1.9.9c.3.1.4.3.4.5 0 .4-.2 1.3-.6 1.7-.5.5-1.4.8-2.3.8-1.1 0-3.6-.8-5.7-2.7-2.6-2.3-3.4-5-3.4-6 0-.4.2-.8.6-1Z"/></svg>
+  </a>
 </body>
 </html>
